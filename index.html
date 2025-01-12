@@ -1,302 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gradexis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/main.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="container">
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .reveal.reveal-up {
-            transform: translateY(20px);
-        }
-
-        .reveal.reveal-left {
-            transform: translateX(-20px);
-        }
-
-        .reveal.reveal-right {
-            transform: translateX(20px);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal.reveal-left.active {
-            transform: translateX(0);
-        }
-
-        .reveal.reveal-right.active {
-            transform: translateX(0);
-        }
-    </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const reveals = document.querySelectorAll(".reveal");
-
-            function reveal() {
-                for (let i = 0; i < reveals.length; i++) {
-                    const windowHeight = window.innerHeight;
-                    const elementTop = reveals[i].getBoundingClientRect().top;
-                    const elementVisible = 50;
-
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
-                    } else {
-                        reveals[i].classList.remove("active");
-                    }
-                }
-            }
-
-            window.addEventListener("scroll", reveal);
-            reveal();
-        });
-    </script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary reveal reveal-up" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Gradexis</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mke-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#reviews">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#compare">Compare</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Options
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Bug request</a></li>
-                            <li><a class="dropdown-item" href="#">Write a review</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <div style="width: 100%; display: flex; justify-content: flex-end;">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
+      <!-- Header -->
+      <nav>
+        <div class="logo">
+          <i data-lucide="graduation-cap"></i>
+          <h1>Gradexis</h1>
         </div>
-    </nav>
-
-    <main role="main">
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron row reveal reveal-up" style="background-color: rgb(216, 244, 255); padding-left: 75px;">
-            <div class="container col" style="padding-top: 75px; padding-bottom: 75px;">
-                <h1 class="display-3">Gradexis</h1>
-                <p>Gradexis is a simple grade and GPA calculator for all students in KatyISD and more!
-                    <br>
-                    Easily calculate your grades and future predictions in just two clicks!
-                </p>
-                <p><a class="btn btn-primary btn-lg" href="https://mobile.gradexis.com" role="button">Try Now</a></p>
-            </div>
-            <div class="col d-flex align-items-center">
-                <img src="https://www.katyisd.org/cms/lib/TX50010808/Centricity/Template/22/gb-logo.png">
-            </div>
+        <div class="nav-links">
+          <button>About</button>
+          <button>Features</button>
+          <button>Reviews</button>
+          <button>Comparison</button>
+          <button id="theme-toggle" class="theme-toggle">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
         </div>
-        <div class="reveal reveal-up" style="margin: 50px; background-color: rgb(255, 230, 216);">
-            <div class="container mt-4 p-4" style="" id="features">
-                <h1 class="display-4">Features</h1>
-                <hr>
+      </nav>
 
-                <div class="row">
-                    <div class="col-md-4 reveal reveal-left">
-                        <h2>Grade Calculator</h2>
-                        <p>We can calculate and predict your grades for the future easily in just a few clicks! Have
-                            perfect and accurate representations of your grades.</p>
-                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-                    </div>
-                    <div class="col-md-4 reveal reveal-up">
-                        <h2>Linked Todo List</h2>
-                        <p>Using a special system, we are able to link your todo list with Google Tasks, Microsoft Todo,
-                            and even Canvas!</p>
-                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-                    </div>
-                    <div class="col-md-4 reveal reveal-right">
-                        <h2>Data Fetching</h2>
-                        <p>Our calculator uses a neat API and data fetching system to get your details and apply them
-                            instantly!</p>
-                        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
-                    </div>
-                </div>
+      <!-- Main -->
+      <div class="main">
+        <h2>Academic Success at your Fingertips.</h2>
+        <p>Gradexis is a simple grade and GPA calculator for all students in KatyISD and more! Easily calculate your grades and future predictions in just two clicks!</p>
+        <button class="cta">
+          <span>Try now</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
 
-                <hr>
-
+      <!-- Features -->
+      <div class="titles">
+        <h1>Features</h1>
+      </div>
+      <div class="carousel-container features-carousel">
+        <button class="carousel-button prev" aria-label="Previous">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="feature-card">
+              <i data-lucide="calculator"></i>
+              <h3>Grade Calculator</h3>
+              <p>We can calculate and predict your grades for the future easily in just a few clicks! Have perfect and accurate representations of your grades.</p>
             </div>
+            <div class="feature-card">
+              <i data-lucide="bar-chart"></i>
+              <h3>Linked Todo List</h3>
+              <p>Using a special system, we are able to link your todo list with Google Tasks, Microsoft Todo, and even Canvas!</p>
+            </div>
+            <div class="feature-card">
+              <i data-lucide="graduation-cap"></i>
+              <h3>Data Fetching</h3>
+              <p>Our calculator uses a neat API and data fetching system to get your details and apply them instantly!</p>
+            </div>
+            <div class="feature-card">
+              <i data-lucide="bell"></i>
+              <h3>Placeholder feature</h3>
+              <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+            </div>
+            <div class="feature-card">
+              <i data-lucide="trending-up"></i>
+              <h3>Placeholder feature</h3>
+              <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+            </div>
+            <div class="feature-card">
+              <i data-lucide="file-text"></i>
+              <h3>Placeholder feature</h3>
+              <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-button next" aria-label="Next">
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Reviews -->
+      <div class="titles">
+        <h1>Reviews</h1>
+      </div>
+
+      <div class="carousel-container reviews-carousel">
+        <button class="carousel-button prev" aria-label="Previous">
+          <i data-lucide="chevron-left"></i>
+        </button>
+
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="review-card">
+              <span class="star">★★★★★</span>
+              <h3>CRHS Teacher</h3>
+              <p>"Amazing app for students to check their grades with ease!"
+              </p>
+            </div>
+            <div class="review-card">
+              <span class="star">★★★★★</span>
+              <h3>CRHS Teacher</h3>
+              <p>"The neat UI is user-friendly and incredibely useful for students to track assignments!"</p>
+            </div>
+            <div class="review-card">
+              <span class="star">★★★★★</span>
+              <h3>CRHS Teacher</h3>
+              <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+            </div>
+              <div class="review-card">
+                <span class="star">★★★★★</span>
+                <h3>CRHS Teacher</h3>
+                <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+              </div>
+              <div class="review-card">
+                <span class="star">★★★★★</span>
+                <h3>CRHS Teacher</h3>
+                <p>Lorem ipsum dolor sit amet. Vel consequatur nulla eos minus dolorem qui perspiciatis enim qui odio exercitationem et vero omnis.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-button next" aria-label="Next">
+            <i data-lucide="chevron-right"></i>
+          </button>
         </div>
 
-        <div class="container mt-5 reveal reveal-up" id='reviews'>
-            <h2 class="text-center display-4 mb-4">Trusted by Teachers</h2>
-            <div class="row">
-                <style>
-                    .col-md-6 .card {
-                        height: 120px;
-                    }
-                </style>
-                <div class="col-md-6 reveal reveal-left">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <span class="text-warning mr-4">
-                                    ★★★★★
-                                </span>
-                                Teacher from Cinco Ranch High School
-                            </h5>
-                            <p class="card-text">
-                                "Amazing app for students to check their grades with ease!"
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 reveal reveal-right">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <span class="text-warning mr-4">
-                                    ★★★★★
-                                </span>
-                                Another teacher from Cinco Ranch HS
-                            </h5>
-                            <p class="card-text">"The neat UI is user-friendly and incredibely useful for students to track assignments!"</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Comparison -->
+        <div class="titles">
+          <h1>Comparison</h1>
         </div>
-        <div class="reveal reveal-up" style="margin: 50px; background-color: rgb(231, 255, 216);" id="compare">
-            <div class="container mt-4 p-4" style="">
-                <h1 class="display-4">Try Now!</h1>
-                <hr>
-                <div class="row">
-                    <p class="col-md-3" style="font-size: 1.5rem;">
-                        Try Gradexis for an amazing experience analyzing and tracking your grades!
-                        <br>
-                        <br>
-                        <a class="btn btn-success btn-lg" href="https://mobile.gradexis.com" role="button">Try Now</a>
-                    </p>
-                    <div class="col reveal reveal-right">
-                        <table class="table table-striped table-hover table-light " style="border: 1px solid lightgray">
-                            <thead class="thead-inverse">
-                                <tr>
-                                    <th class="w-25"></th>
-                                    <th class="">HAC</th>
-                                    <th class="">Gradexis</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="w-25 option">Grade Analysis</td>
-                                    <td>❌</td>
-                                    <td>✔</td>
-                                </tr>
-                                <tr>
-                                    <td class="option">Grade History</td>
-                                    <td>❌</td>
-                                    <td>✔</td>
-                                </tr>
-                                <tr>
-                                    <td class="option">GPA Calculator</td>
-                                    <td>❌</td>
-                                    <td>✔</td>
-                                </tr>
-                                <tr>
-                                    <td class="option">Automatic Todo List</td>
-                                    <td>❌</td>
-                                    <td>✔</td>
-                                </tr>
-                                <tr>
-                                    <td class="option">Color Customizability</td>
-                                    <td>❌</td>
-                                    <td>✔</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-                <hr>
-
-            </div>
+        <div class="comparison">
+          <table>
+            <thead>
+              <tr>
+                <th class="table-header">Features</th>
+                <th class="table-header">HAC</th>
+                <th class="table-header">Gradexis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Grade Analysis</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Grade History</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>GPA Calculator</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Automatic Todo List</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td>Color Customizability</td>
+                <td>❌</td>
+                <td>✅</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </main>
-    <!--     
-    <footer class="container">
-        <p>© Company 2017-2018</p>
-    </footer> -->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
-
-    <div id="ccaa72f9-d5c7-46f5-b352-29fb5d5babc5" data-gg-chat-anchor="true"
-        style="z-index: 2147483647; position: relative; display: block; height: 0px; min-height: 0px; width: 0px; min-width: 0px; margin: 0px; padding: 0px; border: 0px;">
-        <div data-reactroot="" class="_2h_KVyxaj61YqtR-UBnwYR"
-            style="position: fixed; top: 0px; left: 0px; height: 0px; width: 0px;">
-            <div class="_317zVnpIz8cTijNvSsCkbc" style="display: none;">
-                <div class="_30_fsEF9__C2Xr5wuihOyH" aria-hidden="true"></div>
-                <div tabindex="0" aria-hidden="true"></div>
-                <div class="_3ApgnOTpu2GpPcaTn9AehH" role="alertdialog" aria-labelledby="gg-chat-announcement-title"
-                    aria-describedby="gg-chat-announcement-content" aria-modal="true">
-                    <h1 id="gg-chat-announcement-title" class="_22mTIWS8G3HyBlz6Ccyvp"></h1>
-                    <div id="gg-chat-announcement-content" class="_16elc3Tjq8tC_4OmNYalV0"></div>
-                    <div class="_3lALuFW1OzDHKaJn4OGrSd"><button class="_3ZtVD5Ncf0L80JuZWXvdJZ"
-                            aria-label="close announcement">Got it</button></div>
-                </div>
-                <div tabindex="0" aria-hidden="true"></div>
-            </div>
-        </div>
-    </div>
-    <div id="2a52150a-8688-4e58-bb36-7468761a1ab7" data-gg-privacy-banner-anchor="true"
-        style="z-index: 2147483647; position: relative; display: block; height: 0px; min-height: 0px; width: 0px; min-width: 0px; margin: 0px; padding: 0px; border: 0px;">
-        <!-- react-empty: 1 -->
-    </div>
-</body>
-
+      </div>
+  </body>
 </html>
