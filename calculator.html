@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradexis</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/main.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .gpa-calculator, .average-calculator {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+      }
+      .gpa-calculator h2, .average-calculator h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .gpa-calculator .form-group, .average-calculator .form-group {
+        margin-bottom: 15px;
+      }
+      .gpa-calculator .form-group label, .average-calculator .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .gpa-calculator .form-group input, .average-calculator .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .gpa-calculator button, .average-calculator button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .gpa-calculator button:hover, .average-calculator button:hover {
+        background-color: #0056b3;
+      }
+      .gpa-calculator .result, .average-calculator .result {
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- Header -->
+      <nav>
+        <div class="logo">
+          <i data-lucide="graduation-cap"></i>
+          <h1>Gradexis</h1>
+        </div>
+        <div class="nav-links">
+          <!-- <a href="#reviews">Reviews</a> -->
+          <!-- <a href="#comparison">Comparison</a> -->
+          <button id="theme-toggle" class="theme-toggle">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Main -->
+      <div class="main">
+        <div class="gpa-calculator">
+          <h2>GPA Calculator</h2>
+          <div class="form-group">
+            <label for="class-name">Class Name</label>
+            <input type="text" id="class-name" placeholder="Enter class name">
+          </div>
+          <div class="form-group">
+            <label for="class-weight">Class Weight</label>
+            <input type="number" id="class-weight" placeholder="Enter class weight">
+          </div>
+          <div class="form-group">
+            <label for="class-grade">Class Grade</label>
+            <input type="text" id="class-grade" placeholder="Enter class grade">
+          </div>
+          <button onclick="calculateGPA()">Calculate GPA</button>
+          <div class="result" id="gpa-result"></div>
+        </div>
+
+        <div class="average-calculator">
+          <h2>Average Calculator</h2>
+          <div id="assignments">
+            <div class="form-group">
+              <label for="assignment-name">Assignment Name</label>
+              <input type="text" class="assignment-name" placeholder="Enter assignment name">
+            </div>
+            <div class="form-group">
+              <label for="assignment-weight">Assignment Weight</label>
+              <input type="number" class="assignment-weight" placeholder="Enter assignment weight">
+            </div>
+            <div class="form-group">
+              <label for="assignment-grade">Assignment Grade</label>
+              <input type="text" class="assignment-grade" placeholder="Enter assignment grade">
+            </div>
+          </div>
+          <button onclick="addAssignment()">Add Another Assignment</button>
+          <button onclick="calculateAverage()">Calculate Average</button>
+          <div class="result" id="average-result"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function calculateGPA() {
+        const className = document.getElementById('class-name').value;
+        const classWeight = parseFloat(document.getElementById('class-weight').value);
+        const classGrade = document.getElementById('class-grade').value.toUpperCase();
+
+        const gradePoints = {
+          'A': 4.0,
+          'B': 3.0,
+          'C': 2.0,
+          'D': 1.0,
+          'F': 0.0
+        };
+
+        const gpa = gradePoints[classGrade] * classWeight;
+
+        document.getElementById('gpa-result').innerText = `GPA for ${className}: ${gpa.toFixed(2)}`;
+      }
+
+      function addAssignment() {
+        const assignmentsDiv = document.getElementById('assignments');
+        const assignmentHTML = `
+          <div class="form-group">
+            <label for="assignment-name">Assignment Name</label>
+            <input type="text" class="assignment-name" placeholder="Enter assignment name">
+          </div>
+          <div class="form-group">
+            <label for="assignment-weight">Assignment Weight</label>
+            <input type="number" class="assignment-weight" placeholder="Enter assignment weight">
+          </div>
+          <div class="form-group">
+            <label for="assignment-grade">Assignment Grade</label>
+            <input type="text" class="assignment-grade" placeholder="Enter assignment grade">
+          </div>
+        `;
+        assignmentsDiv.insertAdjacentHTML('beforeend', assignmentHTML);
+      }
+
+      function calculateAverage() {
+        const assignmentNames = document.querySelectorAll('.assignment-name');
+        const assignmentWeights = document.querySelectorAll('.assignment-weight');
+        const assignmentGrades = document.querySelectorAll('.assignment-grade');
+
+        const gradePoints = {
+          'A': 4.0,
+          'B': 3.0,
+          'C': 2.0,
+          'D': 1.0,
+          'F': 0.0
+        };
+
+        let totalWeightedGrades = 0;
+        let totalWeights = 0;
+
+        for (let i = 0; i < assignmentNames.length; i++) {
+          const weight = parseFloat(assignmentWeights[i].value);
+          const grade = assignmentGrades[i].value.toUpperCase();
+          totalWeightedGrades += gradePoints[grade] * weight;
+          totalWeights += weight;
+        }
+
+        const average = totalWeightedGrades / totalWeights;
+
+        document.getElementById('average-result').innerText = `Average GPA: ${average.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
