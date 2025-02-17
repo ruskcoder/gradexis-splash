@@ -15,7 +15,7 @@ The project consists of the following files:
 1. Clone the repository:
    ```
    git clone <repository-url>
-   ```
+   ``` 
 
 2. Navigate to the project directory:
    ```
