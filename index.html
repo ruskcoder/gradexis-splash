@@ -1,92 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gradexis</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css" />
     <script src="scripts/main.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      rel="shortcut icon"
+      href="images/logo-rounded.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,0"
+    />
   </head>
   <body>
     <div class="container">
-
       <!-- Header -->
       <nav>
-        <div class="logo">
-          <i data-lucide="graduation-cap"></i>
-          <h1>Gradexis</h1>
-        </div>
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#comparison">Comparison</a>
-          <button id="theme-toggle" class="theme-toggle">
-            <i data-lucide="sun" class="sun-icon"></i>
-            <i data-lucide="moon" class="moon-icon"></i>
-          </button>
+        <div>
+          <div class="logo">
+            <img src="images/logo-rounded.png" alt="Gradexis Logo" />
+            <h1>Gradexis</h1>
+          </div>
+          <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#comparison">Comparison</a>
+            <button id="theme-toggle" class="theme-toggle">
+              <i data-lucide="sun" class="sun-icon"></i>
+              <i data-lucide="moon" class="moon-icon"></i>
+            </button>
+          </div>
         </div>
       </nav>
 
       <!-- Main -->
       <div class="main">
-        <h2>Academic Success at your Fingertips.</h2>
-        <p>Gradexis is a simple grade and GPA calculator for all students in KatyISD and more! Easily calculate your grades and future predictions in just two clicks!</p>
-        <a class="cta" href="https://mobile.gradexis.com" style="text-decoration: none;">
+        <h2>
+          Academic Success
+          <br />
+          at your Fingertips.
+        </h2>
+        <a
+          class="cta"
+          href="https://mobile.gradexis.com"
+          style="text-decoration: none"
+        >
           <span>Try now</span>
           <i data-lucide="arrow-right"></i>
         </a>
       </div>
 
-      <!-- Features -->
-      <div class="titles" id="features">
-        <h1>Features</h1>
+      <div class="screenshots swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/home.png" alt="" />
+            <!-- <iframe src="https://mobile.gradexis.com/" frameborder="0"></iframe> -->
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/grades.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/grades2.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/grades-inside.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/settings.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/attendance.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/progressreport.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/reportcard.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/transcript.png" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="../images/screenshots/md/login.png" alt="" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="carousel-container features-carousel">
-        <button class="carousel-button prev" aria-label="Previous">
-          <i data-lucide="chevron-left"></i>
-        </button>
-        <div class="carousel">
-          <div class="carousel-track">
-            <div class="feature-card">
-              <i data-lucide="calculator"></i>
-              <h3>Grade Calculator</h3>
-              <p>We can calculate and predict your grades for the future easily in just a few clicks! Have perfect and accurate representations of your grades.</p>
+      <!-- Features -->
+
+      <div class="features section">
+        <div class="titles" id="features">
+          <h1>Features</h1>
+        </div>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <i data-lucide="calculator"></i>
+            <h3>Grade Calculator</h3>
+            <p>
+              We can calculate and predict your grades for the future easily in
+              just a few clicks! Have perfect and accurate representations of
+              your grades.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="bar-chart"></i>
+            <h3>Linked Todo List (WIP)</h3>
+            <p>
+              Using a special system, we are able to link your todo list with
+              Google Tasks, Microsoft Todo, and even Canvas!
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="graduation-cap"></i>
+            <h3>Data Fetching</h3>
+            <p>
+              Our calculator uses a neat API and data fetching system to get
+              your details and apply them instantly!
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="palette"></i>
+            <h3>Personalized Colors</h3>
+            <p>
+              Personalize the color theme of the app however you want! Pick any
+              color and have the whole app adapt to it.
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="watch"></i>
+            <h3>Watch App (WIP)</h3>
+            <p>
+              This feature is coming soon. <br />Instantly access all your
+              grades and todo lists from your watch. Hassle-free integration!
+            </p>
+          </div>
+          <div class="feature-card">
+            <i data-lucide="code-xml"></i>
+            <h3>Native & Intuitive UI</h3>
+            <p>
+              Have a completely native feeling app using a native UI. Whether it
+              is iOS or Android, seamlessy switch between UI kits to make your
+              app feel perfectly customized
+            </p>
+          </div>
+        </div>
+        <div class="multi-ui">
+          <h1>One App, Multiple UIs</h1>
+          <p>
+            Enjoy a seamless switch between iOS and Google Branded UI Themes!
+          </p>
+          <div class="ui-container">
+            <div class="ui ios-ui">
+              <i class="material-symbols-outlined">ios</i>
+              <div class="phoneborder">
+                <img src="../images/iphone.png" />
+                <img
+                  class="screenshot"
+                  src="../images/screenshots/ios-home.png"
+                  alt=""
+                />
+                <div class="color"></div>
+              </div>
             </div>
-            <div class="feature-card">
-              <i data-lucide="bar-chart"></i>
-              <h3>Linked Todo List (WIP)</h3>
-              <p>Using a special system, we are able to link your todo list with Google Tasks, Microsoft Todo, and even Canvas!</p>
-            </div>
-            <div class="feature-card">
-              <i data-lucide="graduation-cap"></i>
-              <h3>Data Fetching</h3>
-              <p>Our calculator uses a neat API and data fetching system to get your details and apply them instantly!</p>
-            </div>
-            <div class="feature-card">
-              <i data-lucide="palette"></i>
-              <h3>Personalized Colors</h3>
-              <p>Personalize the color theme of the app however you want! Pick any color and have the whole app adapt to it.</p>
-            </div>
-            <div class="feature-card">
-              <i data-lucide="watch"></i>
-              <h3>Watch App (WIP)</h3>
-              <p>This feature is coming soon. <br>Instantly access all your grades and todo lists from your watch. Hassle-free integration!</p>
-            </div>
-            <div class="feature-card">
-              <i data-lucide="code-xml"></i>
-              <h3>Native & Intuitive UI</h3>
-              <p>Have a completely native feeling app using a native UI. Whether it is iOS or Android, seamlessy switch between UI kits to make your app feel perfectly customized</p>
+            <div class="ui android-ui">
+              <i class="material-symbols-outlined">android</i>
+              <div class="phoneborder">
+                <img src="../images/android.png" />
+                <img
+                  class="screenshot"
+                  src="../images/screenshots/md-home.png"
+                  alt=""
+                />
+                <div class="color"></div>
+              </div>
             </div>
           </div>
         </div>
-        <button class="carousel-button next" aria-label="Next">
-          <i data-lucide="chevron-right"></i>
-        </button>
       </div>
+      <!-- How it works -->
 
+      <div class="section how-it-works">
+        <div class="titles" id="how-it-works">
+          <h1>How it works</h1>
+        </div>
+        <div
+          class="hiw-main"
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+          "
+        >
+          <div
+            class="hiw-steps"
+            style="
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 16px;
+            "
+          >
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <i data-lucide="school" style="font-size: 2rem"></i>
+              <p>Your School</p>
+            </div>
+            <i
+              class="hiw-arrow"
+              data-lucide="arrow-right"
+              style="font-size: 2rem"
+            ></i>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <i data-lucide="server-cog" style="font-size: 2rem"></i>
+              <p>Gradexis Servers</p>
+            </div>
+            <i
+              class="hiw-arrow"
+              data-lucide="arrow-right"
+              style="font-size: 2rem"
+            ></i>
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <i data-lucide="smartphone" style="font-size: 2rem"></i>
+              <p>Gradexis App</p>
+            </div>
+          </div>
+          <style>
+            @media (max-width: 700px) {
+              .hiw-steps {
+                flex-direction: column !important;
+                gap: 8px !important;
+              }
+              .hiw-arrow[data-lucide="arrow-right"] {
+                transform: rotate(90deg);
+              }
+            }
+          </style>
+          <p>Don't worry, no information is stored</p>
+        </div>
+      </div>
       <!-- Reviews -->
-<!--       <div class="titles" id="reviews">
+      <!--       <div class="titles" id="reviews">
         <h1>Reviews</h1>
       </div>
 
@@ -130,48 +298,157 @@
           </button>
         </div> -->
 
-        <!-- Comparison -->
+      <!-- Comparison -->
+      <div class="section comparison">
         <div class="titles" id="comparison">
           <h1>Comparison</h1>
         </div>
-        <div class="comparison">
-          <table>
-            <thead>
-              <tr>
-                <th class="table-header">Features</th>
-                <th class="table-header">HAC</th>
-                <th class="table-header">Gradexis</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Grade Analysis</td>
-                <td>❌</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Grade History</td>
-                <td>❌</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>GPA Calculator</td>
-                <td>❌</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Automatic Todo List</td>
-                <td>❌</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td>Color Customizability</td>
-                <td>❌</td>
-                <td>✅</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="comparison-table">
+          <div class="comparison-features">
+            <div class="cell noborder"></div>
+            <div class="cell">Grade Calculator</div>
+            <div class="cell">Grade Notifications</div>
+            <div class="cell">Clean UI Interface</div>
+            <div class="cell">Color Changable</div>
+            <div class="cell">Multi-platform Support</div>
+            <div class="cell">Grid/List View</div>
+            <div class="cell">Biometric Support</div>
+            <div class="cell">Multiple Users</div>
+          </div>
+          <div class="product gradexis">
+            <div class="cell">Gradexis</div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+          </div>
+          <div class="product">
+            <div class="cell">HAC</div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+          </div>
+          <div class="product">
+            <div class="cell">PowerSchool</div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined check">check</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+            <div class="cell">
+              <i class="material-symbols-outlined cross">close</i>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="section install">
+        <div class="install-content">
+          <div class="titles">
+            <h1>
+              Install Gradexis
+              <br />
+              completely <u>free</u>!
+            </h1>
+          </div>
+          <p>
+            Gradexis is available on both iOS and Android. Click the buttons
+            below to install it on your device.
+          </p>
+          <div class="install-buttons">
+            <a
+              href="https://apps.apple.com/app/gradexis/id6449278850"
+              target="_blank"
+              class="ios-button"
+            >
+              <img src="../images/apple.svg" alt="" />
+              App Store</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gradexis.app"
+              target="_blank"
+              class="android-button"
+            >
+              <img src="../images/google.svg" alt="" />
+              Google Play</a
+            >
+          </div>
+        </div>
+        <div class="install-screenshot">
+          <img
+            src="../images/screenshots/md-home.png"
+            alt="Gradexis Screenshot"
+            class="install-screenshot"
+          />
+          <img
+            src="
+        ../images/screenshots/ios-home.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <h1>Gradexis</h1>
+      <p>Made by Vatsal Sharda from Cinco Ranch High School</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
