@@ -1,2 +1,2 @@
 # gradexis-splash
-A simple splash screen for my mobile app Gradexis. 
+A simple splash screen for my mobile app Gradexis.  
