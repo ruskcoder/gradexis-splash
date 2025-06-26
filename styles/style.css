@@ -34,6 +34,12 @@ html {
   zoom: 1.15;
 }
 
+@media (max-width: 1300px) {
+  html {
+    zoom: 1;
+  }
+}
+
 html,
 body,
 .container {
