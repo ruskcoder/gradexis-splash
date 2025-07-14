@@ -32,6 +32,13 @@ html {
   --themed-gray-5: #6b7280;
   --themed-gray-6: #4b5563;
   zoom: 1.15;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 1300px) {
+  html {
+    zoom: 1;
+  }
 }
 
 html,
@@ -283,6 +290,7 @@ nav > div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 350px;
 }
 .section {
   padding: 4rem 2rem;
