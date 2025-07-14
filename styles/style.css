@@ -193,7 +193,7 @@ nav > div {
   gap: 1.5rem;
 }
 
-.nav-links a {
+.nav-links a:not(.nav-button) {
   text-decoration: none;
   background: none;
   border: none;
@@ -202,45 +202,57 @@ nav > div {
   font-size: 1rem;
 }
 
-.dark .nav-links a {
+.dark .nav-links a:not(.nav-button) {
   color: var(--gray-300);
 }
 
-.nav-links a:hover {
+.nav-links a:not(.nav-button):hover {
   color: var(--theme-opposite);
 }
-@media (max-width: 600px) {
-  .nav-links a {
+@media (max-width: 800px) {
+  .nav-links a:not(.nav-button) {
     display: none;
   }
 }
-.theme-toggle {
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-button {
   text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.5rem;
+  /* font-size: 1rem; */
   border-radius: 0.5rem;
   background-color: var(--gray-100);
+  color: black;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dark .theme-toggle {
+.nav-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.dark .nav-button {
   color: var(--gray-100);
   background-color: var(--gray-800);
 }
 
-.theme-toggle:hover {
+.nav-button:hover {
   background-color: var(--gray-200);
 }
 
-.dark .theme-toggle:hover {
+.dark .nav-button:hover {
   background-color: var(--gray-700);
-}
-
-.theme-toggle i {
-  width: 1.25rem;
-  height: 1.25rem;
 }
 
 .dark .sun-icon {
@@ -262,9 +274,11 @@ nav > div {
 /* Main (the hero) */
 
 .main {
-  padding-top: 72px;
+  margin-top: 82px;
   text-align: center;
   height: 50vh;
+  min-height: 300px;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -274,6 +288,12 @@ nav > div {
   padding: 4rem 2rem;
 }
 
+/* @media (max-width: 800px) {
+  .main {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+} */
 .main h2 {
   font-size: 3rem;
   font-weight: bold;
@@ -829,4 +849,18 @@ footer .footer-links {
   footer p {
     width: auto;
   }
+}
+
+
+
+
+.privacy-policy {
+  margin-top: 82px;
+  padding: 3rem;
+}
+.privacy-policy h2, .privacy-policy h3 {
+  margin-top: 12px;
+}
+.privacy-policy ul {
+  padding-left: 1.5rem;
 }
