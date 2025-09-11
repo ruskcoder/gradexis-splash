@@ -68,13 +68,26 @@
           at your Fingertips.
         </h2>
         <a
+          id="gradexis-link"
           class="cta"
           href="https://mobile.gradexis.com"
           style="text-decoration: none"
         >
-          <span>Try now</span>
+          <span>View now</span>
           <i data-lucide="arrow-right"></i>
         </a>
+
+        <script>
+          const link = document.getElementById("gradexis-link");
+          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+          if (/android/i.test(userAgent)) {
+            link.href = "https://play.google.com/store/apps/details?id=com.ruskcoder.gradexis";
+          } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            link.href = "https://apps.apple.com/us/app/gradexis/id6745531312";
+          }
+        </script>
+
       </div>
 
       <div class="screenshots swiper">
@@ -476,7 +489,7 @@
     <footer>
       <div class="footer-content" style="margin-right: auto">
         <h1>Gradexis</h1>
-        <p>Made by @ruskcoder from Cinco Ranch High School</p>
+        <p>Academic success, at your fingertips.</p>
       </div>
       <div class="footer-links">
         <!-- <a href="/terms-of-service.html" aria-disabled="true"
