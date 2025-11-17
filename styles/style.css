@@ -643,6 +643,9 @@ nav > div {
 .cell .cross {
   color: red;
 }
+.cell .dash {
+  color: yellow;
+}
 .noborder {
   border-bottom: none;
 }
