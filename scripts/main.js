@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const reveals = document.querySelectorAll(".reveal");
+  const reveals = document.querySelectorAll(".reveal-animate");
 
   function reveal() {
     for (let i = 0; i < reveals.length; i++) {
@@ -8,41 +8,75 @@ document.addEventListener("DOMContentLoaded", function () {
       const elementVisible = 100;
 
       if (elementTop < windowHeight - elementVisible) {
-        reveals[i].classList.add("active");
+        reveals[i].classList.add("is-visible");
       } else {
-        reveals[i].classList.remove("active");
+        reveals[i].classList.remove("is-visible");
       }
     }
   }
 
-  //Create icons
   lucide.createIcons();
-  //Dark/light mode toggle
+
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+
+  const link = document.getElementById("gradexis-link");
+  if (/android/i.test(userAgent)) {
+    link.href = "https://play.google.com/store/apps/details?id=com.ruskcoder.gradexis";
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    link.href = "https://apps.apple.com/us/app/gradexis/id6745531312";
+  }
+
+  const desktopButtons = document.querySelector(".install__buttons--desktop");
+  const mobileButtons = document.querySelector(".install__buttons--mobile");
+
+  if (isMobile) {
+    desktopButtons.style.display = "none";
+    mobileButtons.style.display = "flex";
+  } else {
+    desktopButtons.style.display = "flex";
+    mobileButtons.style.display = "none";
+  }
+
   const themeToggle = document.getElementById('theme-toggle');
-  //Check system preference
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.documentElement.classList.add('dark');
   }
-  //Change based on system preference (idk if this works)
+
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (e.matches) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   });
-  //Toggle listener
+
   themeToggle.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
+
+    if (document.documentElement.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
   });
-  //Carousel
+
   document.querySelectorAll('.carousel-container').forEach(container => {
     const track = container.querySelector('.carousel-track');
     const prev = container.querySelector('.prev');
     const next = container.querySelector('.next');
     let position = 0;
     const cardWidth = container.querySelector('.feature-card, .review-card').offsetWidth;
-    const gap = 32; // matches the CSS gap
+    const gap = 32; 
+
     const visibleCards = 3;
     const totalCards = track.children.length;
     const maxPosition = -(totalCards - visibleCards) * (cardWidth + gap);
@@ -60,21 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     prev.addEventListener('click', () => slide(1));
     next.addEventListener('click', () => slide(-1));
-    //Button state
+
     updateButtons();
   });
 
   window.addEventListener("scroll", reveal);
   reveal();
 
-  var swiper = new Swiper(".screenshots", {
-    slidesPerView: 5,
-    spaceBetween: 25,
+  var swiperApp = new Swiper('[data-carousel="app"]', {
+    slidesPerView: 1,
+    spaceBetween: 30,
     loop: true,
     centeredSlides: true,
     grabCursor: true,
+    initialSlide: 4,
     pagination: {
-      el: ".swiper-pagination",
+      el: '[data-carousel="app"] .swiper-pagination',
       clickable: true,
     },
     autoplay: {
@@ -86,14 +121,86 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 1,
         spaceBetween: 30,
       },
-      640: {
+      500: {
         slidesPerView: 3,
-        spaceBetween: 30,
+        spaceBetween: 0,
       },
       800: {
         slidesPerView: 5,
+        spaceBetween: 20,
+      },
+    }
+  });
+
+  var swiperWebsite = new Swiper('[data-carousel="website"]', {
+    slidesPerView: 0.85,
+    spaceBetween: 0,
+    loop: true,
+    centeredSlides: true,
+    grabCursor: true,
+    pagination: {
+      el: '[data-carousel="website"] .swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 1.75,
+        spaceBetween: 30,
+      },
+      800: {
+        slidesPerView: 1.75,
         spaceBetween: 30,
       },
     }
   });
+
+  const tabButtons = document.querySelectorAll(".screenshots__tab");
+  const appCarousel = document.querySelector('[data-carousel="app"]');
+  const websiteCarousel = document.querySelector('[data-carousel="website"]');
+  let currentTab = "website";
+  tabButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const newTab = button.dataset.tab;
+      if (newTab === currentTab) return;
+
+      currentTab = newTab;
+
+      tabButtons.forEach(btn => btn.classList.remove("screenshots__tab--active"));
+      button.classList.add("screenshots__tab--active");
+
+      if (currentTab === "app") {
+        appCarousel.style.display = "block";
+        websiteCarousel.style.display = "none";
+        swiperApp.update();
+      } else {
+        appCarousel.style.display = "none";
+        websiteCarousel.style.display = "block";
+        swiperWebsite.update();
+      }
+    });
+  });
+
+  const platformSections = document.querySelectorAll(".platform-card");
+  platformSections.forEach(section => {
+    section.addEventListener("click", () => {
+      const platform = section.dataset.platform;
+      const tabToActivate = platform === "website" ? "website" : "app";
+
+      const tabToClick = document.querySelector(`.screenshots__tab[data-tab="${tabToActivate}"]`);
+      if (tabToClick) {
+        tabToClick.click();
+      }
+
+      const screenshotsSection = document.querySelector(".screenshots-section");
+      if (screenshotsSection) {
+        setTimeout(() => {
+          screenshotsSection.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    });
+  })
 });

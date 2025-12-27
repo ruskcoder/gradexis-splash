@@ -1,0 +1,87 @@
+/* ============================================
+   SAFE & SECURE SECTION
+   ============================================ */
+
+.safe-secure {
+  padding: var(--spacing-3xl) var(--spacing-md) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.safe-secure__container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xl);
+  max-width: 900px;
+  width: 100%;
+}
+
+.safe-secure__icon-wrapper {
+  flex-shrink: 0;
+}
+
+.safe-secure__icon {
+  font-size: 5rem;
+  color: var(--theme-secondary);
+}
+
+.safe-secure__content {
+  flex: 1;
+}
+
+.safe-secure__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+}
+
+.safe-secure__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-sm);
+}
+
+.safe-secure__data-label {
+  margin-bottom: 0;
+}
+
+.safe-secure__data-list {
+  padding-left: var(--spacing-lg);
+  margin-top: var(--spacing-sm);
+  margin-bottom: 0;
+  color: var(--color-text-secondary);
+}
+
+.safe-secure__data-list-item {
+  margin-bottom: var(--spacing-xs);
+}
+
+.safe-secure__footer-note {
+  margin-top: var(--spacing-md);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .safe-secure__container {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .safe-secure__icon {
+    font-size: 3rem;
+  }
+
+  .safe-secure__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .safe-secure__data-list {
+    padding-left: var(--spacing-lg);
+    text-align: left;
+  }
+}

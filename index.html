@@ -1,293 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gradexis</title>
-    <link rel="stylesheet" href="styles/style.css" />
-    <script src="scripts/main.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link
-      rel="shortcut icon"
-      href="images/logo-rounded.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,0"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <!-- Header -->
-      <nav>
-        <div>
-          <div class="logo">
-            <img src="images/logo-rounded.png" alt="Gradexis Logo" />
-            <h1>Gradexis</h1>
-          </div>
-          <div class="nav-links">
-            <a href="index.html#features">Features</a>
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#comparison">Comparison</a>
-            <div class="nav-buttons">
-              <button id="theme-toggle" class="nav-button">
-                <i data-lucide="sun" class="sun-icon"></i>
-                <i data-lucide="moon" class="moon-icon"></i>
-              </button>
-              <a
-                href="https://github.com/ruskcoder/gradexis-app"
-                class="nav-button"
-                title="github"
-                target="_blank"
-              >
-                <i data-lucide="github"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/gradexis.app/"
-                class="nav-button"
-                title="instagram"
-                target="_blank"
-              >
-                <i data-lucide="instagram"></i>
-              </a>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradexis</title>
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="styles/variables.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <!-- Component Styles -->
+  <link rel="stylesheet" href="styles/navigation.css" />
+  <link rel="stylesheet" href="styles/hero.css" />
+  <link rel="stylesheet" href="styles/platforms.css" />
+  <link rel="stylesheet" href="styles/safe-secure.css" />
+  <link rel="stylesheet" href="styles/features.css" />
+  <link rel="stylesheet" href="styles/how-it-works.css" />
+  <link rel="stylesheet" href="styles/comparison.css" />
+  <link rel="stylesheet" href="styles/screenshots.css" />
+  <link rel="stylesheet" href="styles/install.css" />
+  <link rel="stylesheet" href="styles/footer.css" />
+  <link rel="stylesheet" href="styles/privacy-policy.css" />
+  <!-- External Libraries -->
+  <script src="scripts/main.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="shortcut icon" href="images/logo-rounded.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,700,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="index.html" class="logo">
+          <img src="images/logo-rounded.png" alt="Gradexis Logo" class="logo__image" />
+          <h1 class="logo__text">Gradexis</h1>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#features" class="nav-links__link">Features</a>
+          <a href="index.html#how-it-works" class="nav-links__link">How It Works</a>
+          <a href="index.html#comparison" class="nav-links__link">Comparison</a>
+          <div class="nav-buttons">
+            <button id="theme-toggle" class="nav-button">
+              <i data-lucide="sun" class="icon-sun"></i>
+              <i data-lucide="moon" class="icon-moon"></i>
+            </button>
+            <a href="https://github.com/ruskcoder/" class="nav-button" title="github" target="_blank">
+              <i data-lucide="github"></i>
+            </a>
+            <a href="https://www.instagram.com/gradexis.app/" class="nav-button" title="instagram" target="_blank">
+              <i data-lucide="instagram"></i>
+            </a>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <!-- Main -->
-      <div class="main">
-        <h2>
-          Academic Success
-          <br />
+    <!-- Main -->
+    <div class="hero">
+      <div class="hero__content">
+        <h2 class="hero__title">
+          Academic Success, 
+        </h2>
+        <h2 class="hero__title hero__title--secondary">
           at your Fingertips
         </h2>
-        <a
-          id="gradexis-link"
-          class="cta"
-          href="https://web.gradexis.app"
-          style="text-decoration: none"
-        >
-          <span>View now</span>
-          <i data-lucide="arrow-right"></i>
+        <a id="gradexis-link" class="hero__cta" href="https://web.gradexis.app" style="text-decoration: none">
+          <span>Launch</span>
+          <i data-lucide="arrow-right" class="hero__cta-icon"></i>
         </a>
-
-        <script>
-          const link = document.getElementById("gradexis-link");
-          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
-          if (/android/i.test(userAgent)) {
-            link.href = "https://play.google.com/store/apps/details?id=com.ruskcoder.gradexis";
-          } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            link.href = "https://apps.apple.com/us/app/gradexis/id6745531312";
-          }
-        </script>
-
       </div>
+    </div>
 
-      <div class="screenshots swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/home.png" alt="" />
-            <!-- <iframe src="https://mobile.gradexis.app/" frameborder="0"></iframe> -->
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/grades.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/grades2.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/grades-inside.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/settings.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/attendance.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/progressreport.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/reportcard.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/transcript.png" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="../images/screenshots/md/login.png" alt="" />
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
+    <div class="section section--theme platforms-section">
+      <div class="platform-card platform-card--featured" data-platform="website">
+        <h1 class="platform-card__title">Website:</h1>
+        <img src="../images/screenshots/website/grades.png" alt="Gradexis website screenshot" class="platform-card__image" />
       </div>
-      <!-- Features -->
+      <div class="platform-card" data-platform="app">
+        <h1 class="platform-card__title">Mobile App:</h1>
+        <img src="../images/screenshots/md/grades.png" alt="Gradexis app screenshot" class="platform-card__image" />
+      </div>
+    </div>
 
-      <div class="features section" id="features">
-        <div class="titles">
-          <h1>Features</h1>
+    <div class="section section--light-bg safe-secure">
+      <div class="safe-secure__container">
+        <div class="safe-secure__icon-wrapper">
+          <i data-lucide="lock-keyhole-open" class="safe-secure__icon" width="150" height="150"></i>
         </div>
-        <div class="feature-cards">
-          <div class="feature-card hoverzoom reveal reveal-left">
-            <i data-lucide="calculator"></i>
-            <h3>Grade Calculator</h3>
-            <p>
-              We can calculate and predict your grades for the future easily in
-              just a few clicks! Have perfect and accurate representations of
-              your grades.
-            </p>
-          </div>
-          <div class="feature-card hoverzoom reveal reveal-up">
-            <i data-lucide="bar-chart"></i>
-            <h3>Linked Todo List (WIP)</h3>
-            <p>
-              Using a special system, we are able to link your todo list with
-              Google Tasks, Microsoft Todo, and even Canvas!
-            </p>
-          </div>
-          <div class="feature-card hoverzoom reveal reveal-right">
-            <i data-lucide="graduation-cap"></i>
-            <h3>Data Fetching</h3>
-            <p>
-              Our calculator uses a neat API and data fetching system to get
-              your details and apply them instantly!
-            </p>
-          </div>
-          <div class="feature-card hoverzoom reveal reveal-left">
-            <i data-lucide="palette"></i>
-            <h3>Personalized Colors</h3>
-            <p>
-              Personalize the color theme of the app however you want! Pick any
-              color and have the whole app adapt to it.
-            </p>
-          </div>
-          <div class="feature-card hoverzoom reveal reveal-up">
-            <i data-lucide="watch"></i>
-            <h3>Watch App (WIP)</h3>
-            <p>
-              This feature is coming soon. <br />Instantly access all your
-              grades and todo lists from your watch. Hassle-free integration!
-            </p>
-          </div>
-          <div class="feature-card hoverzoom reveal reveal-right">
-            <i data-lucide="code-xml"></i>
-            <h3>Native & Intuitive UI</h3>
-            <p>
-              Have a completely native feeling app using a native UI. Whether it
-              is iOS or Android, seamlessy switch between UI kits to make your
-              app feel perfectly customized
-            </p>
-          </div>
-        </div>
-        <div class="multi-ui">
-          <h1>One App, Multiple UIs</h1>
-          <p>
-            Enjoy a seamless switch between iOS and Google Branded UI Themes!
+        <div class="safe-secure__content">
+          <h2 class="safe-secure__title">Safe and Secure</h2>
+          <p class="safe-secure__description">
+            Your privacy is our top priority and we would like to be open with what is collected. All your grade data is <strong>encrypted with HTTPS</strong> and securely transmitted from Gradexis servers and is <strong>never stored</strong>. We only fetch the information you request. 
           </p>
+          <p class="safe-secure__data-label">Data Collected:</p>
+          <ul class="safe-secure__data-list">
+            <li class="safe-secure__data-list-item">Your Username</li>
+            <li class="safe-secure__data-list-item">School Name</li>
+          </ul>
+          <p class="safe-secure__footer-note">We use this information for referrals and student distribution monitoring. It is securely stored, and no individual data is shared with third parties.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="section features" id="features">
+      <div class="section-title">
+        <h1 class="section-title__heading">Features</h1>
+      </div>
+      <div class="features__grid">
+        <div class="feature-card reveal-animate reveal-animate--left">
+          <i data-lucide="bell" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">Grade Notifications</h3>
+          <p class="feature-card__description">
+            Get notified whenever your grade changes (Android Only)! 🔔
+          </p>
+        </div>
+        <div class="feature-card reveal-animate reveal-animate--up">
+          <i data-lucide="calculator" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">Grade & GPA Calculator</h3>
+          <p class="feature-card__description">
+            We can calculate and predict your grades using the What If and Target calculators!
+          </p>
+        </div>
+        <div class="feature-card reveal-animate reveal-animate--right">
+          <i data-lucide="list-todo" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">Todo List</h3>
+          <p class="feature-card__description">
+            Have a nice looking todo list to keep track of all your assignments and work!
+          </p>
+        </div>
+        <div class="feature-card reveal-animate reveal-animate--left">
+          <i data-lucide="palette" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">Personalized Theme</h3>
+          <p class="feature-card__description">
+            Personalize and pick the color theme of the whole app however you want!
+          </p>
+        </div>
+        <div class="feature-card reveal-animate reveal-animate--up">
+          <i data-lucide="code-xml" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">Native & Intuitive UI</h3>
+          <p class="feature-card__description">
+            Have a native feeling app on On Android, iOS, and PC!
+          </p>
+        </div>
+        <div class="feature-card reveal-animate reveal-animate--right">
+          <i data-lucide="history" class="feature-card__icon"></i>
+          <h3 class="feature-card__title">History Tracker</h3>
+          <p class="feature-card__description">
+            Scroll through and view your past grades through time!
+          </p>
+        </div>
+      </div>
+      <div class="multi-ui">
+        <h1 class="multi-ui__title">One App, Multiple UIs</h1>
+        <p class="multi-ui__subtitle">
+          Enjoy a native experience anywhere!
+        </p>
+        <div class="multi-ui__containers">
           <div class="ui-container">
-            <div class="ui ios-ui reveal reveal-left">
-              <i class="material-symbols-outlined">ios</i>
-              <div class="phoneborder">
-                <img src="../images/iphone.png" />
-                <img
-                  class="screenshot"
-                  src="../images/screenshots/ios-home.png"
-                  alt=""
-                />
-                <div class="color"></div>
+            <div class="ui-display ui-display--browser reveal-animate reveal-animate--up">
+              <div class="browser-icons">
+                <i class="fa-brands fa-chrome browser-icons__icon"></i>
+                <i class="fa-brands fa-edge browser-icons__icon"></i>
+                <i class="fa-brands fa-firefox-browser browser-icons__icon"></i>
+                <i class="fa-brands fa-safari browser-icons__icon"></i>
+                <i class="fa-brands fa-opera browser-icons__icon"></i>
+              </div>
+              <img class="browser-screenshot" src="../images/screenshots/website/dashboard.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="multi-ui__containers">
+          <div class="ui-container">
+            <div class="ui-display ui-display--ios reveal-animate reveal-animate--left">
+              <i class="material-symbols-outlined ui-display__icon">ios</i>
+              <div class="phone-frame">
+                <img src="../images/iphone.png" class="phone-frame__device" />
+                <img class="phone-frame__screenshot" src="../images/screenshots/ios-home.png" alt="" />
+                <div class="phone-frame__accent-color"></div>
               </div>
             </div>
-            <div class="ui android-ui reveal reveal-right">
-              <i class="material-symbols-outlined">android</i>
-              <div class="phoneborder">
-                <img src="../images/android.png" />
-                <img
-                  class="screenshot"
-                  src="../images/screenshots/md-home.png"
-                  alt=""
-                />
-                <div class="color"></div>
+            <div class="ui-display ui-display--android reveal-animate reveal-animate--right">
+              <i class="material-symbols-outlined ui-display__icon">android</i>
+              <div class="phone-frame">
+                <img src="../images/android.png" class="phone-frame__device" />
+                <img class="phone-frame__screenshot" src="../images/screenshots/md-home.png" alt="" />
+                <div class="phone-frame__accent-color"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- How it works -->
-      <div class="section how-it-works" id="how-it-works">
-        <div class="titles" >
-          <h1>How it works</h1>
-        </div>
-        <div
-          class="hiw-main"
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 32px;
-          "
-        >
-          <div
-            class="hiw-steps"
-            style="
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 16px;
-            "
-          >
-            <div
-              style="display: flex; flex-direction: column; align-items: center"
-              class="hoverzoom"
-            >
-              <i data-lucide="school" style="font-size: 2rem"></i>
-              <p>Your School</p>
-            </div>
-            <i
-              class="hiw-arrow"
-              data-lucide="arrow-right"
-              style="font-size: 2rem"
-            ></i>
-            <div
-              style="display: flex; flex-direction: column; align-items: center"
-              class="hoverzoom"
-            >
-              <i data-lucide="server-cog" style="font-size: 2rem"></i>
-              <p>Gradexis Servers</p>
-            </div>
-            <i
-              class="hiw-arrow"
-              data-lucide="arrow-right"
-              style="font-size: 2rem"
-            ></i>
-            <div
-              style="display: flex; flex-direction: column; align-items: center"
-              class="hoverzoom"
-            >
-              <i data-lucide="smartphone" style="font-size: 2rem"></i>
-              <p>Gradexis App</p>
-            </div>
-          </div>
-          <style>
-            @media (max-width: 700px) {
-              .hiw-steps {
-                flex-direction: column !important;
-                gap: 8px !important;
-              }
-              .hiw-arrow[data-lucide="arrow-right"] {
-                transform: rotate(90deg);
-              }
-            }
-          </style>
-          <p>Don't worry, no information is stored</p>
-        </div>
+    </div>
+    <!-- How it works -->
+    <div class="section section--light-bg how-it-works" id="how-it-works">
+      <div class="section-title">
+        <h1 class="section-title__heading">How it works</h1>
       </div>
-      <!-- Reviews -->
-      <!--       <div class="titles" id="reviews">
+      <div class="how-it-works__container">
+        <div class="how-it-works__flow">
+          <div class="how-it-works__step interactive-hover">
+            <i data-lucide="school" class="how-it-works__step-icon"></i>
+            <p class="how-it-works__step-label">Your School</p>
+          </div>
+          <i class="how-it-works__arrow" data-lucide="arrow-right"></i>
+          <div class="how-it-works__step how-it-works__server-step interactive-hover">
+            <i data-lucide="server-cog" class="how-it-works__step-icon"></i>
+            <p class="how-it-works__step-label">Gradexis Servers</p>
+          </div>
+          <i class="how-it-works__arrow" data-lucide="arrow-right"></i>
+          <div class="how-it-works__step interactive-hover">
+            <i data-lucide="monitor" class="how-it-works__step-icon"></i>
+            <p class="how-it-works__step-label">Gradexis</p>
+          </div>
+        </div>
+        <p class="how-it-works__note">Don't worry, no information is stored</p>
+      </div>
+    </div>
+    <!-- Reviews -->
+    <!--       <div class="titles" id="reviews">
         <h1>Reviews</h1>
       </div>
 
@@ -331,202 +266,281 @@
           </button>
         </div> -->
 
-      <!-- Comparison -->
-      <div class="section comparison" id="comparison">
-        <div class="titles">
-          <h1>Comparison</h1>
-        </div>
-        <div class="comparison-table">
-          <div class="comparison-features">
-            <div class="cell noborder"></div>
-            <div class="cell">Grade Calculator</div>
-            <div class="cell">Grade Notifications</div>
-            <div class="cell">Clean UI Interface</div>
-            <div class="cell">Color Changable</div>
-            <div class="cell">Multi-platform Support</div>
-            <div class="cell">Grid/List View</div>
-            <div class="cell">Biometric Lock</div>
-            <div class="cell">Multiple Users</div>
-          </div>
-          <div class="product gradexis">
-            <div class="cell">Gradexis</div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-          </div>
-          <div class="product">
-            <div class="cell">HAC</div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-          </div>
-          <div class="product">
-            <div class="cell">PowerSchool</div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-          </div>
-          <div class="product">
-            <div class="cell">GradeWay</div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined dash">check_indeterminate_small</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined cross">close</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined dash">check_indeterminate_small</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined dash">check_indeterminate_small</i>
-            </div>
-            <div class="cell">
-              <i class="material-symbols-outlined check">check</i>
-            </div>
-          </div>
-        </div>
+    <!-- Comparison -->
+    <div class="section comparison" id="comparison">
+      <div class="section-title">
+        <h1 class="section-title__heading">Comparison</h1>
       </div>
-      <div class="section install">
-        <div class="install-content">
-          <div class="titles">
-            <h1>
-              Install Gradexis
-              <br />
-              completely <u>free</u>!
-            </h1>
+      <div class="comparison__table">
+        <div class="comparison__row comparison__row--feature-headings">
+          <div class="comparison__cell comparison__cell--no-border"></div>
+          <div class="comparison__cell">Grade Calculators</div>
+          <div class="comparison__cell">Grade Notifications</div>
+          <div class="comparison__cell">Clean UI Interface</div>
+          <div class="comparison__cell">Color Changable</div>
+          <div class="comparison__cell">Multi-platform Support</div>
+          <div class="comparison__cell">Grid/List View</div>
+          <div class="comparison__cell">Biometric Lock</div>
+          <div class="comparison__cell">Multiple Users</div>
+          <div class="comparison__cell">Grade Analysis & History</div>
+        </div>
+        <div class="comparison__row comparison__row--featured">
+          <div class="comparison__cell comparison__cell--header">Gradexis</div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
           </div>
-          <p>
-            Gradexis is available on both iOS and Android. Click the buttons
-            below to install it on your device.
-          </p>
-          <div class="install-buttons">
-            <a
-              href="https://apps.apple.com/us/app/gradexis/id6745531312"
-              target="_blank"
-              class="ios-button"
-            >
-              <img src="../images/apple.svg" alt="" />
-              App Store</a
-            >
-            <a
-              href="https://play.google.com/store/apps/details?id=com.ruskcoder.gradexis"
-              target="_blank"
-              class="android-button"
-            >
-              <img src="../images/google.svg" alt="" />
-              Google Play</a
-            >
-            <a
-              href="https://mobile.gradexis.app"
-              target="_blank"
-              class="android-button"
-            >
-              <img src="../images/web.svg" alt="" />
-              Try Online</a
-            >
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
           </div>
         </div>
-        <div class="install-screenshot">
-          <img
-            src="../images/screenshots/md-home.png"
-            alt="Gradexis Screenshot"
-            class="install-screenshot"
-          />
-          <img
-            src="
-        ../images/screenshots/ios-home.png"
-            alt=""
-          />
+        <div class="comparison__row">
+          <div class="comparison__cell comparison__cell--header">HAC</div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+        </div>
+        <div class="comparison__row">
+          <div class="comparison__cell comparison__cell--header">PowerSchool</div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+        </div>
+        <div class="comparison__row">
+          <div class="comparison__cell comparison__cell--header">GradeWay</div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--warning" title="No Target Calculator & Final Exam Calculator">attach_money</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--error">close</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--warning" title="Only has List view">check_indeterminate_small</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--warning" title="Only on iOS, not Android">check_indeterminate_small</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--success">check</i>
+          </div>
+          <div class="comparison__cell">
+            <i class="material-symbols-outlined comparison__icon comparison__icon--warning" title="No TimeTravel & Timeline">attach_money</i>
+          </div>
         </div>
       </div>
     </div>
+    <div class="section screenshots-section section--theme">
+      <div class="section-title">
+        <h1 class="section-title__heading">Screenshots</h1>
+      </div>
+      <div class="screenshots__tabs">
+        <button class="screenshots__tab screenshots__tab--active" data-tab="website">Website</button>
+        <button class="screenshots__tab" data-tab="app">App</button>
+      </div>
+      <div class="screenshots__carousel swiper swiper--hidden" data-carousel="app">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/grades.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/grades2.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/grades-inside.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/settings.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/attendance.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/progressreport.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/reportcard.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/transcript.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/md/login.png" alt="" class="screenshots__slide-image" />
+          </div>
+        </div>
+        <div class="swiper-pagination screenshots__pagination"></div>
+      </div>
+      <div class="screenshots__carousel swiper" data-carousel="website">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/grades.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/finalexam.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/dashboard.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/whatif.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/gpa-rank.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/history.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/impacts.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/progress-report.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/report-card.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/schedule.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/settings.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/timeline.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/timetravel.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/transcripts.png" alt="" class="screenshots__slide-image" />
+          </div>
+          <div class="swiper-slide screenshots__slide">
+            <img src="../images/screenshots/website/attendance.png" alt="" class="screenshots__slide-image" />
+          </div>
+        </div>
+        <div class="swiper-pagination screenshots__pagination"></div>
+      </div>
+    </div>
 
-    <footer>
-      <div class="footer-content" style="margin-right: auto">
-        <h1>Gradexis</h1>
-        <p>Academic success, at your fingertips.</p>
+    <div class="section install section--light-bg">
+      <div class="install__content">
+        <div class="section-title">
+          <h1 class="install__title">
+            Use Gradexis
+            <br />
+            completely <u>free</u>!
+          </h1>
+        </div>
+        <div class="install__buttons install__buttons--mobile">
+          <a href="https://apps.apple.com/us/app/gradexis/id6745531312" target="_blank" class="install__button">
+            <img src="../images/apple.svg" alt="" class="install__button-icon" />
+            App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.ruskcoder.gradexis" target="_blank"
+            class="install__button">
+            <img src="../images/google.svg" alt="" class="install__button-icon" />
+            Google Play</a>
+          <a href="https://mobile.gradexis.app" target="_blank" class="install__button">
+            <img src="../images/web.svg" alt="" class="install__button-icon" />
+            Try Online</a>
+        </div>
+        <div class="install__buttons install__buttons--desktop">
+          <a href="https://web.gradexis.app" target="_blank" class="install__button">
+            <i data-lucide="square-mouse-pointer"></i>
+            Open Website
+          </a>
+        </div>
       </div>
-      <div class="footer-links">
-        <!-- <a href="/terms-of-service.html" aria-disabled="true"
-          >Terms of Service</a
-        > -->
-        <a href="https://github.com/ruskcoder/gradexis">GitHub</a>
-        <a href="https://www.instagram.com/gradexis.app/">Instagram</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-      </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  </body>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__content">
+      <h1 class="footer__brand">Gradexis</h1>
+      <p class="footer__tagline">Academic success, at your fingertips.</p>
+    </div>
+    <div class="footer__links">
+      <a href="https://github.com/ruskcoder/gradexis" class="footer__link">GitHub</a>
+      <a href="https://www.instagram.com/gradexis.app/" class="footer__link">Instagram</a>
+      <a href="/privacy-policy.html" class="footer__link">Privacy Policy</a>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
 </html>

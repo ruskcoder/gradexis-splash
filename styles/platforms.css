@@ -1,0 +1,62 @@
+/* ============================================
+   PLATFORMS SECTION
+   ============================================ */
+
+.platforms-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.platform-card {
+  gap: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform var(--transition-slower);
+}
+
+.platform-card__title {
+  font-weight: var(--font-weight-bold);
+}
+
+.platform-card__image {
+  height: 25rem;
+  border: 5px solid var(--theme-secondary);
+  border-radius: 16px;
+  transition: all var(--transition-slower);
+  cursor: pointer;
+  width: auto;
+}
+
+.platform-card__image:hover {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 830px) {
+  .platforms-section {
+    text-align: center;
+  }
+
+  .platform-card--featured .platform-card__image {
+    height: auto;
+    width: 90vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .platforms-section {
+    flex-direction: column;
+  }
+
+  .platform-card__image {
+    height: auto;
+    width: 100%;
+  }
+}

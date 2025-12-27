@@ -1,0 +1,137 @@
+/* ============================================
+   NAVIGATION STYLES
+   ============================================ */
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: var(--z-index-fixed);
+  border-top: 7px solid var(--theme-primary);
+}
+
+.navbar__container {
+  padding: var(--spacing-md);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-page);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo__image {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-blue-600);
+}
+
+.logo__text {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   NAV LINKS
+   ============================================ */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.nav-links__link {
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: color var(--transition-base);
+}
+
+.nav-links__link:hover {
+  color: var(--theme-secondary);
+}
+
+@media (max-width: 800px) {
+  .nav-links__link {
+    display: none;
+  }
+}
+
+/* ============================================
+   NAV BUTTONS (THEME TOGGLE, SOCIAL)
+   ============================================ */
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.nav-button {
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-primary);
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-base);
+}
+
+.nav-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.nav-button:hover {
+  background-color: var(--color-surface-tertiary);
+}
+
+.nav-button--dark-mode {
+  color: var(--color-surface-secondary);
+  background-color: var(--color-dark-gray);
+}
+
+.nav-button--dark-mode:hover {
+  background-color: var(--color-surface-tertiary);
+}
+
+/* ============================================
+   THEME TOGGLE ICON VISIBILITY
+   ============================================ */
+
+.icon-sun {
+  display: none;
+}
+
+.icon-moon {
+  display: block;
+}
+
+.dark .icon-sun {
+  display: block;
+}
+
+.dark .icon-moon {
+  display: none;
+}

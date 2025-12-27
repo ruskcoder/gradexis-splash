@@ -1,0 +1,77 @@
+/* ============================================
+   PRIVACY POLICY PAGE
+   ============================================ */
+
+.privacy-policy {
+  margin-top: 82px;
+  padding: var(--spacing-2xl);
+  background-color: var(--background-page);
+  color: var(--text-color);
+  min-height: 80vh;
+}
+
+.privacy-policy__heading {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color);
+}
+
+.privacy-policy__section-heading {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color);
+}
+
+.privacy-policy__subsection-heading {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color);
+}
+
+.privacy-policy__paragraph {
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color-secondary);
+  font-size: var(--font-size-base);
+}
+
+.privacy-policy__list {
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color-secondary);
+}
+
+.privacy-policy__list-item {
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-color-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .privacy-policy {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-top: 72px;
+  }
+
+  .privacy-policy__heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .privacy-policy__section-heading {
+    font-size: var(--font-size-xl);
+  }
+
+  .privacy-policy__subsection-heading {
+    font-size: var(--font-size-lg);
+  }
+}
