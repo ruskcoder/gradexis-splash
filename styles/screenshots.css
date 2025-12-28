@@ -72,7 +72,7 @@
 }
 
 .screenshots__carousel .swiper-slide-active {
-  transform: scale(1.1) !important;
+  /* Scale is now handled dynamically by JavaScript */
 }
 
 .screenshots__slide-image {

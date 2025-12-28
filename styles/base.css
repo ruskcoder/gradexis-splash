@@ -15,6 +15,13 @@ body,
   transition: background-color var(--transition-base), color var(--transition-fast);
 }
 
+.reveal-animate,
+.reveal-animate--up,
+.reveal-animate--left,
+.reveal-animate--right {
+  transition: transform var(--transition-slowest) ease-out, opacity var(--transition-slowest) ease, scale var(--transition-base) ease !important;
+}
+
 body {
   font-family: var(--font-family-primary);
   background-color: var(--background-page);

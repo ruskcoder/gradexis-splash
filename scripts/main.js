@@ -101,6 +101,75 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", reveal);
   reveal();
 
+  function updateSwiperScales(swiper, isDragging = false) {
+    const slides = swiper.slides;
+    const wrapper = swiper.wrapperEl;
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const containerRect = swiper.el.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    slides.forEach((slide) => {
+      const slideRect = slide.getBoundingClientRect();
+      const slideCenter = slideRect.left + slideRect.width / 2;
+
+      const distanceFromCenter = Math.abs(slideCenter - containerCenter);
+      const slideWidth = slideRect.width;
+
+      const normalizedDistance = Math.min(distanceFromCenter / (slideWidth * 1.5), 1);
+
+      const scale = 1.1 - (normalizedDistance * 0.1);
+
+      if (isDragging) {
+        slide.style.transition = 'none'; 
+
+      } else {
+        slide.style.transition = 'transform 0.3s ease-out';
+      }
+      slide.style.transform = `scale(${scale})`;
+    });
+  }
+
+  function observeSwiperWrapper(swiper) {
+    const wrapper = swiper.wrapperEl;
+    let isTransitioning = false;
+    let animationFrameId = null;
+
+    const smoothTransitionUpdate = () => {
+      updateSwiperScales(swiper, true);
+      if (isTransitioning) {
+        animationFrameId = requestAnimationFrame(smoothTransitionUpdate);
+      }
+    };
+
+    const observer = new MutationObserver(() => {
+      // Only update on drag, not during transitions
+      if (!isTransitioning) {
+        updateSwiperScales(swiper, true);
+      }
+    });
+
+    observer.observe(wrapper, {
+      attributes: true,
+      attributeFilter: ['style']
+    });
+
+    swiper.on('transitionStart', () => {
+      isTransitioning = true;
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(smoothTransitionUpdate);
+      }
+    });
+
+    swiper.on('transitionEnd', () => {
+      isTransitioning = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+      updateSwiperScales(swiper, false);
+    });
+  }
+
   var swiperApp = new Swiper('[data-carousel="app"]', {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -129,6 +198,18 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 5,
         spaceBetween: 20,
       },
+    },
+    on: {
+      init: function(swiper) {
+        updateSwiperScales(swiper, false);
+        observeSwiperWrapper(swiper);
+      },
+      touchEnd: function(swiper) {
+        updateSwiperScales(swiper, false);
+      },
+      slideChange: function(swiper) {
+        updateSwiperScales(swiper, false);
+      }
     }
   });
 
@@ -155,6 +236,18 @@ document.addEventListener("DOMContentLoaded", function () {
         slidesPerView: 1.75,
         spaceBetween: 30,
       },
+    },
+    on: {
+      init: function(swiper) {
+        updateSwiperScales(swiper, false);
+        observeSwiperWrapper(swiper);
+      },
+      touchEnd: function(swiper) {
+        updateSwiperScales(swiper, false);
+      },
+      slideChange: function(swiper) {
+        updateSwiperScales(swiper, false);
+      }
     }
   });
 
